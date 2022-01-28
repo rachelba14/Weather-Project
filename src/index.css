@@ -1,0 +1,134 @@
+h1 {
+  text-align: center;
+  font-size: 18px;
+}
+
+h5 {
+  font-size: 15px;
+  text-align: center;
+  font-weight: 300;
+}
+
+label {
+  display: block;
+}
+
+img {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  margin-top: -150px;
+}
+
+hr {
+  margin: 0px;
+}
+
+.container {
+  position: relative;
+  background-color: #f3f1ea;
+  border-radius: 10px;
+  color: #372213;
+  font-family: "Lato", sans-serif;
+  margin-top: 150px;
+  max-width: 800px;
+  padding: 30px 35px;
+  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.current-weather {
+  font-size: 15px;
+  font-weight: 300;
+}
+
+.current-temp {
+  font-weight: 800;
+  font-size: 60px;
+  opacity: 0.8;
+  text-align: left;
+}
+
+.weather-condition {
+  font-size: 15px;
+}
+
+.humidity {
+  position: relative;
+  bottom: 12px;
+}
+
+.wind {
+  position: relative;
+  bottom: 24px;
+  white-space: nowrap;
+}
+
+.current-condition {
+  text-transform: capitalize;
+}
+
+.geolocation {
+  margin-left: 10px;
+}
+
+.geolocation:hover {
+  cursor: pointer;
+}
+
+.book-quote {
+  font-family: "Special Elite", cursive;
+  text-align: center;
+}
+.blockquote {
+  font-size: 15px;
+}
+
+.fa-location-dot {
+  font-size: 20px;
+}
+
+.location {
+  font-size: 25px;
+  text-transform: uppercase;
+}
+
+.temp-toggle {
+  font-family: "Lato", sans-serif;
+  font-size: 30px;
+  text-decoration: none;
+  color: #372213;
+}
+
+.divider {
+  font-family: "Lato", sans-serif;
+  font-size: 30px;
+  text-decoration: none;
+  color: #372213;
+}
+
+a:hover {
+  color: tan;
+}
+
+.hilo {
+  text-align: left;
+  font-size: 25px;
+}
+
+.signature {
+  position: relative;
+  margin: 40px 5px;
+}
+
+.card-title {
+  margin: 0px;
+}
+
+.card-design {
+  width: 900px;
+}
+
+.forecast {
+  text-align: center;
+  white-space: nowrap;
+}
