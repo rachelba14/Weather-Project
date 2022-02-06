@@ -55,12 +55,12 @@ function showTemp(response) {
   if (apiIcon === "01d") {
     icon.setAttribute("src", `images/sun.png`);
     quote.innerHTML = `On a clear day
-Rise and look around you
-And you'll see who you are
+Rise and look around you,
+And you'll see who you are.
 On a clear day
 How it will astound you
 That the glow of your being
-Outshines every star`;
+Outshines every star.`;
     author.innerHTML = `Alan Jay Lerner`;
     book.innerHTML = `On a clear day you can see forever: The Musical`;
   }
@@ -68,12 +68,12 @@ Outshines every star`;
   if (apiIcon === "01n") {
     icon.setAttribute("src", `images/moon.png`);
     quote.innerHTML = `On a clear day
-Rise and look around you
-And you'll see who you are
+Rise and look around you,
+And you'll see who you are.
 On a clear day
 How it will astound you
 That the glow of your being
-Outshines every star`;
+Outshines every star.`;
     author.innerHTML = `Alan Jay Lerner`;
     book.innerHTML = `On a clear day you can see forever: The Musical`;
   }
