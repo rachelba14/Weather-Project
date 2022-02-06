@@ -116,8 +116,9 @@ a:hover {
 }
 
 .signature {
+  font-family: "La Belle Aurore", cursive;
   position: relative;
-  margin: 40px 5px;
+  margin: 60px 5px;
 }
 
 .card-title {

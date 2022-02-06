@@ -64,6 +64,8 @@ function search(event) {
 let searchBar = document.querySelector("#search-bar");
 searchBar.addEventListener("submit", search);
 
+//
+
 function showTempC(response) {
   let cDegrees = document.querySelector("#current-temp");
   let maxTemp = document.querySelector("#high");
