@@ -39,7 +39,7 @@ function showTemp(response) {
   currentTemp.innerHTML = `${Math.round(response.data.main.temp)}°F`;
   city.innerHTML = response.data.name;
   humidity.innerHTML = `Humidity: ${response.data.main.humidity}%`;
-  wind.innerHTML = `Wind Speed: ${Math.round(response.data.wind.speed)} m/s`;
+  wind.innerHTML = `Wind Speed: ${Math.round(response.data.wind.speed)} mph`;
   feelsLike.innerHTML = `Feels Like: ${Math.round(
     response.data.main.feels_like
   )}°F`;
@@ -70,9 +70,15 @@ function showTempC(response) {
   let cDegrees = document.querySelector("#current-temp");
   let maxTemp = document.querySelector("#high");
   let minTemp = document.querySelector("#low");
+  let feelsLike = document.querySelector("#feels-like");
+  let wind = document.querySelector("#wind");
   cDegrees.innerHTML = `${Math.round(response.data.main.temp)}°C`;
   minTemp.innerHTML = `${Math.round(response.data.main.temp_min)}°C`;
   maxTemp.innerHTML = `${Math.round(response.data.main.temp_max)}°C |`;
+  feelsLike.innerHTML = `Feels Like: ${Math.round(
+    response.data.main.feels_like
+  )}°C`;
+  wind.innerHTML = `Wind Speed: ${Math.round(response.data.wind.speed)} m/s`;
 }
 
 function getC(event) {
@@ -95,9 +101,15 @@ function showTempF(response) {
   let fDegrees = document.querySelector("#current-temp");
   let maxTemp = document.querySelector("#high");
   let minTemp = document.querySelector("#low");
+  let feelsLike = document.querySelector("#feels-like");
+  let wind = document.querySelector("#wind");
   fDegrees.innerHTML = `${Math.round(response.data.main.temp)}°F`;
   minTemp.innerHTML = `${Math.round(response.data.main.temp_min)}°F`;
   maxTemp.innerHTML = `${Math.round(response.data.main.temp_max)}°F |`;
+  feelsLike.innerHTML = `Feels Like: ${Math.round(
+    response.data.main.feels_like
+  )}°F`;
+  wind.innerHTML = `Wind Speed: ${Math.round(response.data.wind.speed)} mph`;
 }
 
 function getF(event) {
@@ -131,7 +143,7 @@ function showLocationTemp(response) {
   currentTemp.innerHTML = `${Math.round(response.data.main.temp)}°F`;
   city.innerHTML = response.data.name;
   humidity.innerHTML = `Humidity: ${response.data.main.humidity}%`;
-  wind.innerHTML = `Wind Speed: ${Math.round(response.data.wind.speed)} m/s`;
+  wind.innerHTML = `Wind Speed: ${Math.round(response.data.wind.speed)} mph`;
   feelsLike.innerHTML = `Feels Like: ${Math.round(
     response.data.main.feels_like
   )}°F`;
