@@ -25,7 +25,8 @@
 <link href="https://fonts.googleapis.com/css2?family=La+Belle+Aurore&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Special+Elite&display=swap" rel="stylesheet">
   </head>
   <body>
-    <img src = "images/book.png"/>
+    <img src = "images/book.png"
+    class = "background"/>
     <div class="container">
       <div class = "row">
         <div class = "col-10">
@@ -44,10 +45,13 @@
           <div class="col-5"> <span class = "location" id = "location">
             NEW YORK CITY </span>
             <div class="row">
-              <div class="col"><span class = "current-weather" id = "message">Current Weather</span></div>
-              <div class="row">
+              <div class="col">
+                <span class = "current-weather" id = "message">Current Weather</span></div>
+              <div class="row g-0">
                 <div class="col">
-                  <i class="fa-solid fa-cloud-showers-heavy"></i>
+
+                 <img src="images/clear-sky.png" id = "icon" class = "icon"/>
+                    
                   <span class = "current-condition" id="current-condition"> Rainy </span>
                 </div>
               </div>
@@ -145,7 +149,7 @@
         <p class="card-text forecast">Snow
           <br/> <i class="fa-solid fa-snowflake snow-icon"></i>
           <br/> 31°|23°
-       
+    
       </div>
     </div>  
   </div>
@@ -153,6 +157,7 @@
 </div>
 <div class = signature>Designed and coded by <a href = https://www.shecodes.io/students/491-rachel-bonne-annee target = "_blank">Rachel Bonne-Année</a>. This code is <a href = https://github.com/rachelba14/Weather-Project target = "_blank"> open-sourced</a> and hosted on <a href = https://app.netlify.com/teams/rachelba14/overview target = "_blank"> Netlify </a></div>
 <script src="src/index.js"></script>
+<div> Icons made by <a href="https://www.freepik.com" title="Freepik"> Freepik </a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com'</a></div>
   </body>
 </html>
 

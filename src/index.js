@@ -35,6 +35,8 @@ function showTemp(response) {
   let currentCondition = document.querySelector("#current-condition");
   let maxTemp = document.querySelector("#high");
   let minTemp = document.querySelector("#low");
+  let apiIcon = response.data.weather[0].icon;
+  let icon = document.querySelector("#icon");
   message.innerHTML = `Current Weather`;
   currentTemp.innerHTML = `${Math.round(response.data.main.temp)}°F`;
   city.innerHTML = response.data.name;
@@ -47,7 +49,44 @@ function showTemp(response) {
   minTemp.innerHTML = `${Math.round(response.data.main.temp_min)}°F`;
   maxTemp.innerHTML = `${Math.round(response.data.main.temp_max)}°F |`;
 
-  console.log(response.data);
+  if (apiIcon === "01d") {
+    icon.setAttribute("src", `images/sun.png`);
+  }
+
+  if (apiIcon === "01n") {
+    icon.setAttribute("src", `images/moon.png`);
+  }
+
+  if (apiIcon === "02d" || apiIcon === "02n") {
+    icon.setAttribute("src", `images/few-clouds.png`);
+  }
+
+  if (apiIcon === "03d" || apiIcon === "03n") {
+    icon.setAttribute("src", `images/scattered-clouds.png`);
+  }
+
+  if (apiIcon === "04d" || apiIcon === "04n") {
+    icon.setAttribute("src", `images/broken-clouds.png`);
+  }
+
+  if (apiIcon === "09d" || apiIcon === "09n") {
+    icon.setAttribute("src", `images/shower-rain.png`);
+  }
+
+  if (apiIcon === "10d" || apiIcon === "10n") {
+    icon.setAttribute("src", `images/rain.png`);
+  }
+
+  if (apiIcon === "11d" || apiIcon === "11n") {
+    icon.setAttribute("src", `images/thunderstorm.png`);
+  }
+  if (apiIcon === "13d" || apiIcon === "13n") {
+    icon.setAttribute("src", `images/snow.png`);
+  }
+
+  if (apiIcon === "50d" || apiIcon === "50n") {
+    icon.setAttribute("src", `images/mist.png`);
+  }
 }
 
 function search(event) {
@@ -139,6 +178,8 @@ function showLocationTemp(response) {
   let currentCondition = document.querySelector("#current-condition");
   let maxTemp = document.querySelector("#high");
   let minTemp = document.querySelector("#low");
+  let apiIcon = response.data.weather[0].icon;
+  let icon = document.querySelector("#icon");
   message.innerHTML = `Current Weather`;
   currentTemp.innerHTML = `${Math.round(response.data.main.temp)}°F`;
   city.innerHTML = response.data.name;
@@ -151,6 +192,45 @@ function showLocationTemp(response) {
   minTemp.innerHTML = `${Math.round(response.data.main.temp_min)}°F`;
   maxTemp.innerHTML = `${Math.round(response.data.main.temp_max)}°F |`;
   searchInput.value = response.data.name;
+
+  if (apiIcon === "01d") {
+    icon.setAttribute("src", `images/sun.png`);
+  }
+
+  if (apiIcon === "01n") {
+    icon.setAttribute("src", `images/moon.png`);
+  }
+
+  if (apiIcon === "02d" || apiIcon === "02n") {
+    icon.setAttribute("src", `images/few-clouds.png`);
+  }
+
+  if (apiIcon === "03d" || apiIcon === "03n") {
+    icon.setAttribute("src", `images/scattered-clouds.png`);
+  }
+
+  if (apiIcon === "04d" || apiIcon === "04n") {
+    icon.setAttribute("src", `images/broken-clouds.png`);
+  }
+
+  if (apiIcon === "09d" || apiIcon === "09n") {
+    icon.setAttribute("src", `images/shower-rain.png`);
+  }
+
+  if (apiIcon === "10d" || apiIcon === "10n") {
+    icon.setAttribute("src", `images/rain.png`);
+  }
+
+  if (apiIcon === "11d" || apiIcon === "11n") {
+    icon.setAttribute("src", `images/thunderstorm.png`);
+  }
+  if (apiIcon === "13d" || apiIcon === "13n") {
+    icon.setAttribute("src", `images/snow.png`);
+  }
+
+  if (apiIcon === "50d" || apiIcon === "50n") {
+    icon.setAttribute("src", `images/mist.png`);
+  }
 }
 
 function position(position) {
