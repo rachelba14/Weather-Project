@@ -180,6 +180,7 @@ function showLocationTemp(response) {
   let minTemp = document.querySelector("#low");
   let apiIcon = response.data.weather[0].icon;
   let icon = document.querySelector("#icon");
+  let quote = document.querySelector("#quote");
   message.innerHTML = `Current Weather`;
   currentTemp.innerHTML = `${Math.round(response.data.main.temp)}°F`;
   city.innerHTML = response.data.name;
@@ -195,6 +196,8 @@ function showLocationTemp(response) {
 
   if (apiIcon === "01d") {
     icon.setAttribute("src", `images/sun.png`);
+    quote.innerHTML = `The sky is blue today, Max, and there is a big long cloud, and it's stretched out, like a rope. At the end of it, the sun is
+like a yellow hole. . .`;
   }
 
   if (apiIcon === "01n") {
@@ -231,6 +234,8 @@ function showLocationTemp(response) {
   if (apiIcon === "50d" || apiIcon === "50n") {
     icon.setAttribute("src", `images/mist.png`);
   }
+
+  console.log(response.data);
 }
 
 function position(position) {
