@@ -137,3 +137,7 @@ a:hover {
 .icon {
   width: 40px;
 }
+
+.book {
+  font-style: italic;
+}
