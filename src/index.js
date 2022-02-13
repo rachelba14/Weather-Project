@@ -133,7 +133,7 @@ Outshines every star.`;
     book.innerHTML = `Delicious!`;
   }
 
-  console.log(response.data);
+  getForecast(response.data.coord);
 }
 
 function search(event) {
@@ -152,6 +152,16 @@ searchBar.addEventListener("submit", search);
 
 //
 
+function getForecast(coordinates) {
+  let apiKey = "2e03d7d5a86e13a466013e0c083b84c1";
+  let units = "imperial";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&exclude={part}&appid=${apiKey}&units=${units}`;
+
+  axios.get(apiUrl).then(displayForecast);
+  console.log(coordinates);
+}
+//
+
 function showTempC(response) {
   let cDegrees = document.querySelector("#current-temp");
   let maxTemp = document.querySelector("#high");
@@ -165,6 +175,8 @@ function showTempC(response) {
     response.data.main.feels_like
   )}°C`;
   wind.innerHTML = `Wind Speed: ${Math.round(response.data.wind.speed)} m/s`;
+
+  getForecast(response.data.coord);
 }
 
 function getC(event) {
@@ -196,6 +208,8 @@ function showTempF(response) {
     response.data.main.feels_like
   )}°F`;
   wind.innerHTML = `Wind Speed: ${Math.round(response.data.wind.speed)} mph`;
+
+  getForecast(response.data.coord);
 }
 
 function getF(event) {
@@ -324,7 +338,7 @@ Outshines every star`;
     book.innerHTML = `Delicious!`;
   }
 
-  console.log(response.data);
+  getForecast(response.data.coord);
 }
 
 function position(position) {
@@ -348,11 +362,13 @@ button.addEventListener("click", getCurrentPosition);
 
 //
 
-function displayForecast() {
+function displayForecast(response) {
+  let forecast = response.data.daily;
   let forecastElement = document.querySelector("#weather-forecast");
   let days = ["Sun", "Mon", "Tue", "Wed", "Thurs", "Fri", "Sat"];
   let forecastHTML = `<span id ="weather-forecast"><div class="row row-cols-1 mb-0 row-cols-6 g-4 card-design">`;
   days.forEach(function (day) {
+    if (index < 6) {
     forecastHTML =
       forecastHTML +
       ` <div class="col">
@@ -372,5 +388,3 @@ function displayForecast() {
   forecastHTML = forecastHTML + `</span>`;
   forecastElement.innerHTML = forecastHTML;
 }
-
-displayForecast();
