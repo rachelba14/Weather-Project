@@ -48,7 +48,7 @@ function formatDay(timestamp) {
   ];
   let month = months[forecastTime.getMonth()];
 
-  return `${day} ${month} ${date}`;
+  return `${day}, ${month} ${date}`;
 }
 
 function showTemp(response) {
@@ -75,8 +75,8 @@ function showTemp(response) {
     response.data.main.feels_like
   )}°F`;
   currentCondition.innerHTML = response.data.weather[0].description;
-  minTemp.innerHTML = `${Math.round(response.data.main.temp_min)}°F`;
-  maxTemp.innerHTML = `${Math.round(response.data.main.temp_max)}°F |`;
+  minTemp.innerHTML = `${Math.round(response.data.main.temp_min)}°F |`;
+  maxTemp.innerHTML = `${Math.round(response.data.main.temp_max)}°F`;
 
   if (apiIcon === "01d") {
     icon.setAttribute("src", `images/sun.png`);
@@ -409,12 +409,9 @@ function displayForecast(response) {
         <p class="card-text forecast" id = "weather-condition-forecast">${
           forecastDay.weather[0].description
         } <br/>
-          <img
-          src="http://openweathermap.org/img/wn/${
+          <img class = "weather-forecast-icon" id = "weather-forecast-icon" src = "images/${
             forecastDay.weather[0].icon
-          }@2x.png"
-          alt=""
-          id = "weather-forecast-icon" class = "weather-forecast-icon"/>
+          }.png" />
           <br/> <span id = "weather-condition-low" >${Math.round(
             forecastDay.temp.min
           )}°F </span>|<span id = "weather-condition-high">${Math.round(
@@ -425,12 +422,12 @@ function displayForecast(response) {
     </div>
   </div>`;
     }
+
+    console.log(forecastDay.weather[0].icon);
   });
 
   forecastHTML = forecastHTML + `</span>`;
   forecastElement.innerHTML = forecastHTML;
-
-  console.log(response.data.daily);
 }
 
 currentDate();

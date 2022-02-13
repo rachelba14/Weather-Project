@@ -139,10 +139,10 @@ a:hover {
   width: 40px;
 }
 
-.weather-forecast-icon {
-  width: 25px;
-}
-
 .book {
   font-style: italic;
+}
+
+.weather-forecast-icon {
+  width: 25px;
 }
