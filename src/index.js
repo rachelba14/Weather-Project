@@ -347,3 +347,30 @@ button.addEventListener("click", getCurrentPosition);
 //
 
 //
+
+function displayForecast() {
+  let forecastElement = document.querySelector("#weather-forecast");
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thurs", "Fri", "Sat"];
+  let forecastHTML = `<span id ="weather-forecast"><div class="row row-cols-1 mb-0 row-cols-6 g-4 card-design">`;
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      ` <div class="col">
+    <div class="card h-100">
+      <div class="card-body">
+        <h5 class="card-title" id = "weather-forecast-date">${day}</h5>
+        <hr/>
+        <p class="card-text forecast" id = "weather-condition-forecast">Partly Sunny <br/>
+          <img src="images/rain.png" id = "weather-forecast-icon" class = "weather-forecast-icon"/>
+          <br/> <span id = "weather-condition-high" >49°</span>|<span id = "weather-condition-low">43°</span>
+        </p>
+      </div>
+    </div>
+  </div>`;
+  });
+
+  forecastHTML = forecastHTML + `</span>`;
+  forecastElement.innerHTML = forecastHTML;
+}
+
+displayForecast();
