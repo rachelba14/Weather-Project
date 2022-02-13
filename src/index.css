@@ -131,7 +131,8 @@ a:hover {
 
 .forecast {
   text-align: center;
-  white-space: nowrap;
+  white-space: wrap;
+  text-transform: capitalize;
 }
 
 .icon {
