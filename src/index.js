@@ -365,24 +365,41 @@ button.addEventListener("click", getCurrentPosition);
 function displayForecast(response) {
   let forecast = response.data.daily;
   let forecastElement = document.querySelector("#weather-forecast");
-  let days = ["Sun", "Mon", "Tue", "Wed", "Thurs", "Fri", "Sat"];
   let forecastHTML = `<span id ="weather-forecast"><div class="row row-cols-1 mb-0 row-cols-6 g-4 card-design">`;
-  days.forEach(function (day) {
-    if (index < 6) {
-    forecastHTML =
-      forecastHTML +
-      ` <div class="col">
+  let icon = document.querySelector("#weather-forecast-icon");
+  forecast.forEach(function (forecastDay, index) {
+    if (index < 5) {
+      forecastHTML =
+        forecastHTML +
+        ` <div class="col">
     <div class="card h-100">
       <div class="card-body">
-        <h5 class="card-title" id = "weather-forecast-date">${day}</h5>
+        <h5 class="card-title" id = "weather-forecast-date">${
+          forecastDay.dt
+        }</h5>
         <hr/>
-        <p class="card-text forecast" id = "weather-condition-forecast">Partly Sunny <br/>
-          <img src="images/rain.png" id = "weather-forecast-icon" class = "weather-forecast-icon"/>
-          <br/> <span id = "weather-condition-high" >49°</span>|<span id = "weather-condition-low">43°</span>
+        <p class="card-text forecast" id = "weather-condition-forecast">${
+          forecastDay.weather[0].description
+        } <br/>
+          <img
+          src="http://openweathermap.org/img/wn/${
+            forecastDay.weather[0].icon
+          }@2x.png"
+          alt=""
+          width="42" id = "weather-forecast-icon" class = "weather-forecast-icon"/>
+          <br/> <span id = "weather-condition-low" >${Math.round(
+            forecastDay.temp.min
+          )}°F </span>|<span id = "weather-condition-high">${Math.round(
+          forecastDay.temp.max
+        )}°F</span>
         </p>
       </div>
     </div>
   </div>`;
+    }
+    let apiIcon = forecastDay.weather[0].icon;
+
+    console.log(apiIcon);
   });
 
   forecastHTML = forecastHTML + `</span>`;
