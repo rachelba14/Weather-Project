@@ -79,7 +79,7 @@ function showTemp(response) {
   maxTemp.innerHTML = `${Math.round(response.data.main.temp_max)}°F`;
 
   if (apiIcon === "01d") {
-    icon.setAttribute("src", `images/sun.png`);
+    icon.setAttribute("src", `images/01d.png`);
     quote.innerHTML = `On a clear day
 Rise and look around you,
 And you'll see who you are.
@@ -92,7 +92,7 @@ Outshines every star.`;
   }
 
   if (apiIcon === "01n") {
-    icon.setAttribute("src", `images/moon.png`);
+    icon.setAttribute("src", `images/01n.png`);
     quote.innerHTML = `On a clear day
 Rise and look around you,
 And you'll see who you are.
@@ -105,55 +105,55 @@ Outshines every star.`;
   }
 
   if (apiIcon === "02d" || apiIcon === "02n") {
-    icon.setAttribute("src", `images/few-clouds.png`);
+    icon.setAttribute("src", `images/02d.png`);
     quote.innerHTML = `This world was made to be cloaked in gray. It wouldn’t feel natural if the sun shone brightly all the time.`;
     author.innerHTML = `Darren Shan`;
     book.innerHTML = `Bec`;
   }
 
   if (apiIcon === "03d" || apiIcon === "03n") {
-    icon.setAttribute("src", `images/scattered-clouds.png`);
+    icon.setAttribute("src", `images/03d.png`);
     quote.innerHTML = `Sometimes the clouds in the sky are mistaken. They didn’t come to block the sunlight. They came to embrace it.`;
     author.innerHTML = `Kaylee Stepkoski`;
     book.innerHTML = ``;
   }
 
   if (apiIcon === "04d" || apiIcon === "04n") {
-    icon.setAttribute("src", `images/broken-clouds.png`);
+    icon.setAttribute("src", `images/04d.png`);
     quote.innerHTML = `Life is no different than the weather. Not only is it unpredictable, but it shows us a new perspective of the world every day.`;
     author.innerHTML = `Suzy Kassem`;
     book.innerHTML = `Rise UP and Salute the Sun`;
   }
 
   if (apiIcon === "09d" || apiIcon === "09n") {
-    icon.setAttribute("src", `images/shower-rain.png`);
+    icon.setAttribute("src", `images/09d.png`);
     quote.innerHTML = `The sky's gray and there's mizzle. It's so soft on my skin--it's nothing like rain. It's even softer than the lightest drizzle! Lift my face up, so it can kiss my skin`;
     author.innerHTML = `Jenn Fagan`;
     book.innerHTML = `The Panopticon`;
   }
 
   if (apiIcon === "10d" || apiIcon === "10n") {
-    icon.setAttribute("src", `images/rain.png`);
+    icon.setAttribute("src", `images/10d.png`);
     quote.innerHTML = `My mom says that when it rains you never feel like you should be anywhere but home.`;
     author.innerHTML = `Elise Broach`;
     book.innerHTML = `Shakespeare's Secret`;
   }
 
   if (apiIcon === "11d" || apiIcon === "11n") {
-    icon.setAttribute("src", `images/thunderstorm.png`);
+    icon.setAttribute("src", `images/11n.png`);
     quote.innerHTML = `Thunderstorms are as much our friends as the sunshine`;
     author.innerHTML = `Criss Jami`;
     book.innerHTML = `Killosophy`;
   }
   if (apiIcon === "13d" || apiIcon === "13n") {
-    icon.setAttribute("src", `images/snow.png`);
+    icon.setAttribute("src", `images/13d.png`);
     quote.innerHTML = `Storms, hail, floods and all sorts of bad weather will come in life, but you know what, so will sunshine.`;
     author.innerHTML = `Gift Gugu Mona`;
     book.innerHTML = `The Essence of Faith`;
   }
 
   if (apiIcon === "50d" || apiIcon === "50n") {
-    icon.setAttribute("src", `images/mist.png`);
+    icon.setAttribute("src", `images/50d.png`);
     quote.innerHTML = `The weather was gray, the streets filled with that Sunday morning silence that makes you feel like everybody else is home with people that they love.`;
     author.innerHTML = `Ruth Reichl`;
     book.innerHTML = `Delicious!`;
@@ -286,7 +286,7 @@ function showLocationTemp(response) {
   searchInput.value = response.data.name;
 
   if (apiIcon === "01d") {
-    icon.setAttribute("src", `images/sun.png`);
+    icon.setAttribute("src", `images/01d.png`);
     quote.innerHTML = `On a clear day
 Rise and look around you
 And you'll see who you are
@@ -299,7 +299,7 @@ Outshines every star`;
   }
 
   if (apiIcon === "01n") {
-    icon.setAttribute("src", `images/moon.png`);
+    icon.setAttribute("src", `images/01n.png`);
     quote.innerHTML = `On a clear day
 Rise and look around you
 And you'll see who you are
@@ -312,55 +312,55 @@ Outshines every star`;
   }
 
   if (apiIcon === "02d" || apiIcon === "02n") {
-    icon.setAttribute("src", `images/few-clouds.png`);
+    icon.setAttribute("src", `images/02d.png`);
     quote.innerHTML = `This world was made to be cloaked in gray. It wouldn’t feel natural if the sun shone brightly all the time.`;
     author.innerHTML = `Darren Shan`;
     book.innerHTML = `Bec`;
   }
 
   if (apiIcon === "03d" || apiIcon === "03n") {
-    icon.setAttribute("src", `images/scattered-clouds.png`);
+    icon.setAttribute("src", `images/03d.png`);
     quote.innerHTML = `Sometimes the clouds in the sky are mistaken. They didn’t come to block the sunlight. They came to embrace it.`;
     author.innerHTML = `Kaylee Stepkoski`;
     book.innerHTML = ``;
   }
 
   if (apiIcon === "04d" || apiIcon === "04n") {
-    icon.setAttribute("src", `images/broken-clouds.png`);
+    icon.setAttribute("src", `images/04d.png`);
     quote.innerHTML = `Life is no different than the weather. Not only is it unpredictable, but it shows us a new perspective of the world every day.`;
     author.innerHTML = `Suzy Kassem`;
     book.innerHTML = `Rise UP and Salute the Sun`;
   }
 
   if (apiIcon === "09d" || apiIcon === "09n") {
-    icon.setAttribute("src", `images/shower-rain.png`);
+    icon.setAttribute("src", `images/09d.png`);
     quote.innerHTML = `The sky's gray and there's mizzle. It's so soft on my skin--it's nothing like rain. It's even softer than the lightest drizzle! Lift my face up, so it can kiss my skin`;
     author.innerHTML = `Jenn Fagan`;
     book.innerHTML = `The Panopticon`;
   }
 
   if (apiIcon === "10d" || apiIcon === "10n") {
-    icon.setAttribute("src", `images/rain.png`);
+    icon.setAttribute("src", `images/10d.png`);
     quote.innerHTML = `My mom says that when it rains you never feel like you should be anywhere but home.`;
     author.innerHTML = `Elise Broach`;
     book.innerHTML = `Shakespeare's Secret`;
   }
 
   if (apiIcon === "11d" || apiIcon === "11n") {
-    icon.setAttribute("src", `images/thunderstorm.png`);
+    icon.setAttribute("src", `images/11d.png`);
     quote.innerHTML = `Thunderstorms are as much our friends as the sunshine`;
     author.innerHTML = `Criss Jami`;
     book.innerHTML = `Killosophy`;
   }
   if (apiIcon === "13d" || apiIcon === "13n") {
-    icon.setAttribute("src", `images/snow.png`);
+    icon.setAttribute("src", `images/13d.png`);
     quote.innerHTML = `Storms, hail, floods and all sorts of bad weather will come in life, but you know what, so will sunshine.`;
     author.innerHTML = `Gift Gugu Mona`;
     book.innerHTML = `The Essence of Faith`;
   }
 
   if (apiIcon === "50d" || apiIcon === "50n") {
-    icon.setAttribute("src", `images/mist.png`);
+    icon.setAttribute("src", `images/50d.png`);
     quote.innerHTML = `The weather was gray, the streets filled with that Sunday morning silence that makes you feel like everybody else is home with people that they love.`;
     author.innerHTML = `Ruth Reichl`;
     book.innerHTML = `Delicious!`;
