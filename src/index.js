@@ -197,14 +197,12 @@ function showTempC(response) {
   let feelsLike = document.querySelector("#feels-like");
   let wind = document.querySelector("#wind");
   cDegrees.innerHTML = `${Math.round(response.data.main.temp)}°C`;
-  minTemp.innerHTML = `${Math.round(response.data.main.temp_min)}°C`;
-  maxTemp.innerHTML = `${Math.round(response.data.main.temp_max)}°C |`;
+  minTemp.innerHTML = `${Math.round(response.data.main.temp_min)}°C |`;
+  maxTemp.innerHTML = `${Math.round(response.data.main.temp_max)}°C`;
   feelsLike.innerHTML = `Feels Like: ${Math.round(
     response.data.main.feels_like
   )}°C`;
   wind.innerHTML = `Wind Speed: ${Math.round(response.data.wind.speed)} m/s`;
-
-  getForecast(response.data.coord);
 }
 
 function getC(event) {
@@ -230,14 +228,12 @@ function showTempF(response) {
   let feelsLike = document.querySelector("#feels-like");
   let wind = document.querySelector("#wind");
   fDegrees.innerHTML = `${Math.round(response.data.main.temp)}°F`;
-  minTemp.innerHTML = `${Math.round(response.data.main.temp_min)}°F`;
-  maxTemp.innerHTML = `${Math.round(response.data.main.temp_max)}°F |`;
+  minTemp.innerHTML = `${Math.round(response.data.main.temp_min)}°F |`;
+  maxTemp.innerHTML = `${Math.round(response.data.main.temp_max)}°F`;
   feelsLike.innerHTML = `Feels Like: ${Math.round(
     response.data.main.feels_like
   )}°F`;
   wind.innerHTML = `Wind Speed: ${Math.round(response.data.wind.speed)} mph`;
-
-  getForecast(response.data.coord);
 }
 
 function getF(event) {
@@ -281,8 +277,8 @@ function showLocationTemp(response) {
     response.data.main.feels_like
   )}°F`;
   currentCondition.innerHTML = response.data.weather[0].description;
-  minTemp.innerHTML = `${Math.round(response.data.main.temp_min)}°F`;
-  maxTemp.innerHTML = `${Math.round(response.data.main.temp_max)}°F |`;
+  minTemp.innerHTML = `${Math.round(response.data.main.temp_min)}°F |`;
+  maxTemp.innerHTML = `${Math.round(response.data.main.temp_max)}°F`;
   searchInput.value = response.data.name;
 
   if (apiIcon === "01d") {
