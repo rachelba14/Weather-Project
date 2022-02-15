@@ -98,6 +98,17 @@ hr {
   font-size: 30px;
   text-decoration: none;
   color: #372213;
+  cursor: default;
+}
+
+.temp-toggle:hover {
+  color: #372213;
+}
+
+.active:hover {
+  color: tan;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 .divider {
@@ -105,10 +116,6 @@ hr {
   font-size: 30px;
   text-decoration: none;
   color: #372213;
-}
-
-a:hover {
-  color: tan;
 }
 
 .hilo {
@@ -120,6 +127,14 @@ a:hover {
   font-family: "La Belle Aurore", cursive;
   position: relative;
   margin: 60px 5px;
+  text-decoration: none;
+  color: black;
+}
+
+.signature a:hover {
+  color: tan;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 .card-title {

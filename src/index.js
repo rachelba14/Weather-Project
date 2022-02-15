@@ -196,6 +196,9 @@ function showTempC(response) {
   let minTemp = document.querySelector("#low");
   let feelsLike = document.querySelector("#feels-like");
   let wind = document.querySelector("#wind");
+  tempToggleF.classList.add("active");
+  tempToggleC.classList.remove("active");
+
   cDegrees.innerHTML = `${Math.round(response.data.main.temp)}°C`;
   minTemp.innerHTML = `${Math.round(response.data.main.temp_min)}°C`;
   maxTemp.innerHTML = `${Math.round(response.data.main.temp_max)}°C |`;
@@ -227,6 +230,8 @@ function showTempF(response) {
   let minTemp = document.querySelector("#low");
   let feelsLike = document.querySelector("#feels-like");
   let wind = document.querySelector("#wind");
+  tempToggleC.classList.add("active");
+  tempToggleF.classList.remove("active");
   fDegrees.innerHTML = `${Math.round(response.data.main.temp)}°F`;
   minTemp.innerHTML = `${Math.round(response.data.main.temp_min)}°F`;
   maxTemp.innerHTML = `${Math.round(response.data.main.temp_max)}°F |`;
