@@ -164,10 +164,7 @@ Outshines every star.`;
   console.log(response.data);
 }
 
-function search(event) {
-  event.preventDefault();
-  let searchInput = document.querySelector("#search-input");
-  let city = searchInput.value;
+function search(city) {
   let apiKey = "2e03d7d5a86e13a466013e0c083b84c1";
   let units = "imperial";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=${units}&appid=${apiKey}`;
@@ -175,8 +172,11 @@ function search(event) {
   axios.get(apiUrl).then(showTemp);
 }
 
-let searchBar = document.querySelector("#search-bar");
-searchBar.addEventListener("submit", search);
+function handleSubmit(event) {
+  event.preventDefault();
+  let searchInput = document.querySelector("#search-input");
+  search(searchInput.value);
+}
 
 //
 
@@ -283,10 +283,10 @@ function showLocationTemp(response) {
 
   if (apiIcon === "01d") {
     icon.setAttribute("src", `images/01d.png`);
-    quote.innerHTML = `On a clear day
+    quote.innerHTML = `On a clear day,
 Rise and look around you
-And you'll see who you are
-On a clear day
+And you'll see who you are.
+On a clear day,
 How it will astound you
 That the glow of your being
 Outshines every star`;
@@ -296,10 +296,10 @@ Outshines every star`;
 
   if (apiIcon === "01n") {
     icon.setAttribute("src", `images/01n.png`);
-    quote.innerHTML = `On a clear day
+    quote.innerHTML = `On a clear day,
 Rise and look around you
-And you'll see who you are
-On a clear day
+And you'll see who you are.
+On a clear day,
 How it will astound you
 That the glow of your being
 Outshines every star`;
@@ -426,4 +426,8 @@ function displayForecast(response) {
   forecastElement.innerHTML = forecastHTML;
 }
 
+let searchBar = document.querySelector("#search-bar");
+searchBar.addEventListener("submit", handleSubmit);
+
 currentDate();
+search("London");
