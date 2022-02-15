@@ -389,13 +389,13 @@ button.addEventListener("click", getCurrentPosition);
 function displayForecast(response) {
   let forecast = response.data.daily;
   let forecastElement = document.querySelector("#weather-forecast");
-  let forecastHTML = `<span id ="weather-forecast"><div class="row row-cols-1 mb-0 row-cols-6 g-4 card-design">`;
+  let forecastHTML = `<span id ="weather-forecast"><div class="row row-cols-1 mb-0 row-cols-md-6 g-4 card-design">`;
 
   forecast.forEach(function (forecastDay, index) {
     if (index < 5) {
       forecastHTML =
         forecastHTML +
-        ` <div class="col">
+        ` <div class="col-sm-2 card-columns">
     <div class="card h-100">
       <div class="card-body">
         <h5 class="card-title" id = "weather-forecast-date">${formatDay(
@@ -414,6 +414,7 @@ function displayForecast(response) {
           forecastDay.temp.min
         )}°F</span>
         </p>
+        
       </div>
     </div>
   </div>`;
