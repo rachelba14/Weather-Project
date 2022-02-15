@@ -75,8 +75,8 @@ function showTemp(response) {
     response.data.main.feels_like
   )}°F`;
   currentCondition.innerHTML = response.data.weather[0].description;
-  minTemp.innerHTML = `${Math.round(response.data.main.temp_min)}°F |`;
-  maxTemp.innerHTML = `${Math.round(response.data.main.temp_max)}°F`;
+  minTemp.innerHTML = `${Math.round(response.data.main.temp_min)}°F`;
+  maxTemp.innerHTML = `${Math.round(response.data.main.temp_max)}°F |`;
 
   if (apiIcon === "01d") {
     icon.setAttribute("src", `images/01d.png`);
@@ -197,8 +197,8 @@ function showTempC(response) {
   let feelsLike = document.querySelector("#feels-like");
   let wind = document.querySelector("#wind");
   cDegrees.innerHTML = `${Math.round(response.data.main.temp)}°C`;
-  minTemp.innerHTML = `${Math.round(response.data.main.temp_min)}°C |`;
-  maxTemp.innerHTML = `${Math.round(response.data.main.temp_max)}°C`;
+  minTemp.innerHTML = `${Math.round(response.data.main.temp_min)}°C`;
+  maxTemp.innerHTML = `${Math.round(response.data.main.temp_max)}°C |`;
   feelsLike.innerHTML = `Feels Like: ${Math.round(
     response.data.main.feels_like
   )}°C`;
@@ -228,8 +228,8 @@ function showTempF(response) {
   let feelsLike = document.querySelector("#feels-like");
   let wind = document.querySelector("#wind");
   fDegrees.innerHTML = `${Math.round(response.data.main.temp)}°F`;
-  minTemp.innerHTML = `${Math.round(response.data.main.temp_min)}°F |`;
-  maxTemp.innerHTML = `${Math.round(response.data.main.temp_max)}°F`;
+  minTemp.innerHTML = `${Math.round(response.data.main.temp_min)}°F`;
+  maxTemp.innerHTML = `${Math.round(response.data.main.temp_max)}°F |`;
   feelsLike.innerHTML = `Feels Like: ${Math.round(
     response.data.main.feels_like
   )}°F`;
@@ -277,8 +277,8 @@ function showLocationTemp(response) {
     response.data.main.feels_like
   )}°F`;
   currentCondition.innerHTML = response.data.weather[0].description;
-  minTemp.innerHTML = `${Math.round(response.data.main.temp_min)}°F |`;
-  maxTemp.innerHTML = `${Math.round(response.data.main.temp_max)}°F`;
+  minTemp.innerHTML = `${Math.round(response.data.main.temp_min)}°F`;
+  maxTemp.innerHTML = `${Math.round(response.data.main.temp_max)}°F |`;
   searchInput.value = response.data.name;
 
   if (apiIcon === "01d") {
@@ -408,10 +408,10 @@ function displayForecast(response) {
           <img class = "weather-forecast-icon" id = "weather-forecast-icon" src = "images/${
             forecastDay.weather[0].icon
           }.png" />
-          <br/> <span id = "weather-condition-low" >${Math.round(
-            forecastDay.temp.min
-          )}°F </span>|<span id = "weather-condition-high">${Math.round(
-          forecastDay.temp.max
+          <br/> <span id = "weather-condition-high" >${Math.round(
+            forecastDay.temp.max
+          )}°F </span>|<span id = "weather-condition-low">${Math.round(
+          forecastDay.temp.min
         )}°F</span>
         </p>
       </div>

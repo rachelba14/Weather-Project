@@ -50,6 +50,7 @@ hr {
 
 .weather-condition {
   font-size: 15px;
+  white-space: nowrap;
 }
 
 .humidity {
