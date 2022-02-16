@@ -69,17 +69,21 @@ function showTemp(response) {
   message.innerHTML = `Current Weather`;
 
   fTemp = response.data.main.temp;
+  fTempMin = response.data.main.temp_min;
+  fTempMax = response.data.main.temp_max;
+  fWind = response.data.wind.speed;
+  fFeelsLike = response.data.main.feels_like;
 
   currentTemp.innerHTML = `${Math.round(fTemp)}°F`;
   city.innerHTML = response.data.name;
   humidity.innerHTML = `Humidity: ${response.data.main.humidity}%`;
-  wind.innerHTML = `Wind Speed: ${Math.round(response.data.wind.speed)} mph`;
-  feelsLike.innerHTML = `Feels Like: ${Math.round(
-    response.data.main.feels_like
-  )}°F`;
+  wind.innerHTML = `Wind Speed: ${Math.round(wind)} mph`;
+  feelsLike.innerHTML = `Feels Like: ${Math.round(feelsLike)}°F`;
   currentCondition.innerHTML = response.data.weather[0].description;
-  minTemp.innerHTML = `${Math.round(response.data.main.temp_min)}°F`;
-  maxTemp.innerHTML = `${Math.round(response.data.main.temp_max)}°F |`;
+  minTemp.innerHTML = `${Math.round(fTempMin)}°F`;
+  maxTemp.innerHTML = `${Math.round(fTempMax)}°F |`;
+  feelsLike.innerHTML = `Feels Like: ${Math.round(fFeelsLike)}°F`;
+  wind.innerHTML = `Wind Speed: ${Math.round(fWind)} mph`;
 
   if (apiIcon === "01d") {
     icon.setAttribute("src", `images/01d.png`);
@@ -211,18 +215,20 @@ function showLocationTemp(response) {
   let book = document.querySelector("#book");
 
   fTemp = response.data.main.temp;
+  fTempMin = response.data.main.temp_min;
+  fTempMax = response.data.main.temp_max;
+  fWind = response.data.wind.speed;
+  fFeelsLike = response.data.main.feels_like;
 
   message.innerHTML = `Current Weather`;
   currentTemp.innerHTML = `${Math.round(fTemp)}°F`;
   city.innerHTML = response.data.name;
   humidity.innerHTML = `Humidity: ${response.data.main.humidity}%`;
-  wind.innerHTML = `Wind Speed: ${Math.round(response.data.wind.speed)} mph`;
-  feelsLike.innerHTML = `Feels Like: ${Math.round(
-    response.data.main.feels_like
-  )}°F`;
+  wind.innerHTML = `Wind Speed: ${Math.round(fWind)} mph`;
+  feelsLike.innerHTML = `Feels Like: ${Math.round(fFeelsLike)}°F`;
   currentCondition.innerHTML = response.data.weather[0].description;
-  minTemp.innerHTML = `${Math.round(response.data.main.temp_min)}°F`;
-  maxTemp.innerHTML = `${Math.round(response.data.main.temp_max)}°F |`;
+  minTemp.innerHTML = `${Math.round(fTempMin)}°F`;
+  maxTemp.innerHTML = `${Math.round(fTempMax)}°F |`;
   searchInput.value = response.data.name;
 
   if (apiIcon === "01d") {
@@ -354,7 +360,7 @@ function displayForecast(response) {
           }.png" />
           <br/> <span id = "weather-condition-high" >${Math.round(
             forecastDay.temp.max
-          )}°F </span>|<span id = "weather-condition-low">${Math.round(
+          )}°F | </span><span id = "weather-condition-low">${Math.round(
           forecastDay.temp.min
         )}°F</span>
         </p>
@@ -376,22 +382,47 @@ function displayFTemp(event) {
   tempToggleC.classList.add("active");
   tempToggleF.classList.remove("active");
   let currentTemp = document.querySelector("#current-temp");
+
+  let maxTemp = document.querySelector("#high");
+  let minTemp = document.querySelector("#low");
+  let currentFeelsLike = document.querySelector("#feels-like");
+  let currentWind = document.querySelector("#wind");
   currentTemp.innerHTML = `${Math.round(fTemp)}°F`;
+
+  minTemp.innerHTML = `${Math.round(fTempMin)}°F`;
+  maxTemp.innerHTML = `${Math.round(fTempMax)}°F |`;
+  currentWind.innerHTML = `Wind Speed: ${Math.round(fWind)}mph`;
+  currentFeelsLike.innerHTML = `Feels Like: ${Math.round(fFeelsLike)}°F `;
 }
 
 function displayCTemp(event) {
   event.preventDefault();
   let currentTemp = document.querySelector("#current-temp");
+  let currentTempMin = document.querySelector("#low");
+  let currentTempMax = document.querySelector("#high");
+  let currentFeelsLike = document.querySelector("#feels-like");
+  let currentWind = document.querySelector("#wind");
+
   tempToggleF.classList.add("active");
   tempToggleC.classList.remove("active");
   let cTemp = (fTemp - 32) / 1.8;
+  let cTempMin = (fTempMin - 32) / 1.8;
+  let cTempMax = (fTempMax - 32) / 1.8;
+  let cFeelsLike = (fFeelsLike - 32) / 1.8;
+  let cWind = fWind * 1.609;
+
   currentTemp.innerHTML = `${Math.round(cTemp)}°C`;
+  currentTempMin.innerHTML = `${Math.round(cTempMin)}°C`;
+  currentTempMax.innerHTML = `${Math.round(cTempMax)}°C |`;
+  currentFeelsLike.innerHTML = `Feels Like: ${Math.round(cFeelsLike)}°C`;
+  currentWind.innerHTML = `Wind Speed: ${Math.round(cWind)}km/hr`;
 }
 
-let ftemp = null;
-let ftempmin = null;
-let ftempmax = null;
-let wind = null;
+let fTemp = null;
+let fTempMin = null;
+let fTempMax = null;
+let fWind = null;
+let fFeelsLike = null;
 
 let tempToggleF = document.querySelector("#toggletoF");
 let tempToggleC = document.querySelector("#toggletoC");
