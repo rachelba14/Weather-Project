@@ -36,10 +36,10 @@ function formatDay(timestamp) {
     "Jan",
     "Feb",
     "Mar",
-    "April",
+    "Apr",
     "May",
-    "June",
-    "July",
+    "Jun",
+    "Jul",
     "Aug",
     "Sept",
     "Oct",
@@ -67,7 +67,10 @@ function showTemp(response) {
   let author = document.querySelector("#author");
   let book = document.querySelector("#book");
   message.innerHTML = `Current Weather`;
-  currentTemp.innerHTML = `${Math.round(response.data.main.temp)}°F`;
+
+  fTemp = response.data.main.temp;
+
+  currentTemp.innerHTML = `${Math.round(fTemp)}°F`;
   city.innerHTML = response.data.name;
   humidity.innerHTML = `Humidity: ${response.data.main.humidity}%`;
   wind.innerHTML = `Wind Speed: ${Math.round(response.data.wind.speed)} mph`;
@@ -190,73 +193,6 @@ function getForecast(coordinates) {
 }
 //
 
-function showTempC(response) {
-  let cDegrees = document.querySelector("#current-temp");
-  let maxTemp = document.querySelector("#high");
-  let minTemp = document.querySelector("#low");
-  let feelsLike = document.querySelector("#feels-like");
-  let wind = document.querySelector("#wind");
-  tempToggleF.classList.add("active");
-  tempToggleC.classList.remove("active");
-
-  cDegrees.innerHTML = `${Math.round(response.data.main.temp)}°C`;
-  minTemp.innerHTML = `${Math.round(response.data.main.temp_min)}°C`;
-  maxTemp.innerHTML = `${Math.round(response.data.main.temp_max)}°C |`;
-  feelsLike.innerHTML = `Feels Like: ${Math.round(
-    response.data.main.feels_like
-  )}°C`;
-  wind.innerHTML = `Wind Speed: ${Math.round(response.data.wind.speed)} m/s`;
-}
-
-function getC(event) {
-  event.preventDefault();
-  let searchInput = document.querySelector("#search-input");
-  let city = searchInput.value;
-  let apiKey = "2e03d7d5a86e13a466013e0c083b84c1";
-  let units = "metric";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=${units}&appid=${apiKey}`;
-
-  axios.get(apiUrl).then(showTempC);
-}
-
-let tempToggleC = document.querySelector("#toggletoC");
-tempToggleC.addEventListener("click", getC);
-
-//
-
-function showTempF(response) {
-  let fDegrees = document.querySelector("#current-temp");
-  let maxTemp = document.querySelector("#high");
-  let minTemp = document.querySelector("#low");
-  let feelsLike = document.querySelector("#feels-like");
-  let wind = document.querySelector("#wind");
-  tempToggleC.classList.add("active");
-  tempToggleF.classList.remove("active");
-  fDegrees.innerHTML = `${Math.round(response.data.main.temp)}°F`;
-  minTemp.innerHTML = `${Math.round(response.data.main.temp_min)}°F`;
-  maxTemp.innerHTML = `${Math.round(response.data.main.temp_max)}°F |`;
-  feelsLike.innerHTML = `Feels Like: ${Math.round(
-    response.data.main.feels_like
-  )}°F`;
-  wind.innerHTML = `Wind Speed: ${Math.round(response.data.wind.speed)} mph`;
-}
-
-function getF(event) {
-  event.preventDefault();
-  let searchInput = document.querySelector("#search-input");
-  let city = searchInput.value;
-  let apiKey = "2e03d7d5a86e13a466013e0c083b84c1";
-  let units = "imperial";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=${units}&appid=${apiKey}`;
-
-  axios.get(apiUrl).then(showTempF);
-}
-
-let tempToggleF = document.querySelector("#toggletoF");
-tempToggleF.addEventListener("click", getF);
-
-//
-
 function showLocationTemp(response) {
   let searchInput = document.querySelector("#search-input");
   let currentTemp = document.querySelector("#current-temp");
@@ -273,8 +209,11 @@ function showLocationTemp(response) {
   let quote = document.querySelector("#quote");
   let author = document.querySelector("#author");
   let book = document.querySelector("#book");
+
+  fTemp = response.data.main.temp;
+
   message.innerHTML = `Current Weather`;
-  currentTemp.innerHTML = `${Math.round(response.data.main.temp)}°F`;
+  currentTemp.innerHTML = `${Math.round(fTemp)}°F`;
   city.innerHTML = response.data.name;
   humidity.innerHTML = `Humidity: ${response.data.main.humidity}%`;
   wind.innerHTML = `Wind Speed: ${Math.round(response.data.wind.speed)} mph`;
@@ -432,8 +371,39 @@ function displayForecast(response) {
   forecastElement.innerHTML = forecastHTML;
 }
 
+function displayFTemp(event) {
+  event.preventDefault();
+  tempToggleC.classList.add("active");
+  tempToggleF.classList.remove("active");
+  let currentTemp = document.querySelector("#current-temp");
+  currentTemp.innerHTML = `${Math.round(fTemp)}°F`;
+}
+
+function displayCTemp(event) {
+  event.preventDefault();
+  let currentTemp = document.querySelector("#current-temp");
+  tempToggleF.classList.add("active");
+  tempToggleC.classList.remove("active");
+  let cTemp = (fTemp - 32) / 1.8;
+  currentTemp.innerHTML = `${Math.round(cTemp)}°C`;
+}
+
+let ftemp = null;
+let ftempmin = null;
+let ftempmax = null;
+let wind = null;
+
+let tempToggleF = document.querySelector("#toggletoF");
+let tempToggleC = document.querySelector("#toggletoC");
+
 let searchBar = document.querySelector("#search-bar");
 searchBar.addEventListener("submit", handleSubmit);
 
+let fahrenheitLink = document.querySelector("#toggletoF");
+fahrenheitLink.addEventListener("click", displayFTemp);
+
+let celsiusLink = document.querySelector("#toggletoC");
+celsiusLink.addEventListener("click", displayCTemp);
+
 currentDate();
-search("London");
+search("Panama");
