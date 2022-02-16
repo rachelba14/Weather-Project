@@ -391,7 +391,7 @@ function displayFTemp(event) {
 
   minTemp.innerHTML = `${Math.round(fTempMin)}°F`;
   maxTemp.innerHTML = `${Math.round(fTempMax)}°F |`;
-  currentWind.innerHTML = `Wind Speed: ${Math.round(fWind)}mph`;
+  currentWind.innerHTML = `Wind Speed: ${Math.round(fWind)} mph`;
   currentFeelsLike.innerHTML = `Feels Like: ${Math.round(fFeelsLike)}°F `;
 }
 
@@ -409,13 +409,13 @@ function displayCTemp(event) {
   let cTempMin = (fTempMin - 32) / 1.8;
   let cTempMax = (fTempMax - 32) / 1.8;
   let cFeelsLike = (fFeelsLike - 32) / 1.8;
-  let cWind = fWind * 1.609;
+  let cWind = fWind / 2.237;
 
   currentTemp.innerHTML = `${Math.round(cTemp)}°C`;
   currentTempMin.innerHTML = `${Math.round(cTempMin)}°C`;
   currentTempMax.innerHTML = `${Math.round(cTempMax)}°C |`;
   currentFeelsLike.innerHTML = `Feels Like: ${Math.round(cFeelsLike)}°C`;
-  currentWind.innerHTML = `Wind Speed: ${Math.round(cWind)}km/hr`;
+  currentWind.innerHTML = `Wind Speed: ${Math.round(cWind)} m/s`;
 }
 
 let fTemp = null;
