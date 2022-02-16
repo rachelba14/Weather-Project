@@ -3,7 +3,7 @@ function currentDate() {
   let date = now.getDate();
   let hours = now.getHours();
   let minutes = ("0" + now.getMinutes()).slice(-2);
-  let days = ["Sun", "Mon", "Tue", "Wed", "Thurs", "Fri", "Sat"];
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thur", "Fri", "Sat"];
   let day = days[now.getDay()];
   let months = [
     "Jan",
@@ -30,7 +30,7 @@ function currentDate() {
 function formatDay(timestamp) {
   let forecastTime = new Date(timestamp * 1000);
   let date = forecastTime.getDate();
-  let days = ["Sun", "Mon", "Tue", "Wed", "Thurs", "Fri", "Sat"];
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thur", "Fri", "Sat"];
   let day = days[forecastTime.getDay()];
   let months = [
     "Jan",
@@ -397,7 +397,7 @@ function displayForecast(response) {
   let forecastHTML = `<span id ="weather-forecast"><div class=" row row-cols-1 mb-0 row-cols-md-6 g-4 card-design">`;
 
   forecast.forEach(function (forecastDay, index) {
-    if (index < 5) {
+    if (index < 6) {
       forecastHTML =
         forecastHTML +
         ` <div class="col-sm-2">
