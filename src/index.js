@@ -167,8 +167,6 @@ Outshines every star.`;
   }
 
   getForecast(response.data.coord);
-
-  console.log(response.data);
 }
 
 function search(city) {
@@ -193,7 +191,6 @@ function getForecast(coordinates) {
   let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&exclude={part}&appid=${apiKey}&units=${units}`;
 
   axios.get(apiUrl).then(displayForecast);
-  console.log(coordinates);
 }
 //
 
@@ -369,8 +366,6 @@ function displayForecast(response) {
     </div>
   </div>`;
     }
-
-    console.log(forecastDay.weather[0].icon);
   });
 
   forecastHTML = forecastHTML + `</span>`;
